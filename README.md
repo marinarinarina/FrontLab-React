@@ -1,2 +1,5 @@
 # wanted-pre-onboarding-frontend
-원티드 프리온보딩 선별과제
+
+ 이름: 김마리나
+ 실행방법: npm start
+ 실행영상:
