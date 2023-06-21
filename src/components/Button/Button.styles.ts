@@ -16,6 +16,13 @@ export const Button = styled.button<ButtonProps>`
 	justify-content: center;
 	cursor: pointer;
 
+	&:focus {
+		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+	}
+	&:disabled {
+		cursor: not-allowed;
+	}
+
 	${(props) =>
 		props.colorType === 'green' &&
 		css`
