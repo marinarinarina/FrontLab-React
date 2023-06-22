@@ -1,5 +1,5 @@
-# wanted-pre-onboarding-frontend
+# 마리나의 FrontEnd 실험실
+이 리포지토리는 대조군입니다.
 
-이름: 김마리나
-실행방법: npm start
-실행영상:
+- 언어: typescript
+- 라이브러리: React
