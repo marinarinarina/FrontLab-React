@@ -3,20 +3,20 @@ import { ButtonProps, Button } from './Button.styles';
 
 interface StyledButtonProps extends ButtonProps {
 	label: string;
-	disabled?: boolean;
 	isSignup?: boolean;
-	onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+	disabled?: boolean;
+	onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const StyledButton: React.FC<StyledButtonProps> = ({ label, colorType, size, onClick, disabled, isSignup }) => {
+export const StyledButton: React.FC<StyledButtonProps> = ({ label, colorType, size, isSignup, disabled, onClick }) => {
 	return (
 		<Button
 			className={['button', `button--${size}`, `button--${colorType}`].join(' ')}
 			colorType={colorType}
 			size={size}
-			onClick={onClick}
+			data-testid={isSignup ? 'signup-button' : 'Login-button'}
 			disabled={disabled}
-			data-testid={isSignup ? 'signup-button' : 'signin-button'}
+			onClick={onClick}
 		>
 			{label}
 		</Button>

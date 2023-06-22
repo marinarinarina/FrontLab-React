@@ -7,7 +7,7 @@ const Home = () => {
 			<Title>메인페이지</Title>
 			<ul>
 				<li>
-					<Link to="/signin">로그인</Link>
+					<Link to="/Login">로그인</Link>
 				</li>
 				<li>
 					<Link to="/signup">회원가입</Link>

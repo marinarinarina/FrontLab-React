@@ -21,6 +21,7 @@ export const Button = styled.button<ButtonProps>`
 	}
 	&:disabled {
 		cursor: not-allowed;
+		opacity: 0.75;
 	}
 
 	${(props) =>
@@ -66,7 +67,7 @@ export const Button = styled.button<ButtonProps>`
 			}
 		`}
 
-${(props) =>
+	${(props) =>
 		props.colorType === 'gray' &&
 		css`
 			background-color: ${({ theme }) => theme.colors.gray300};
