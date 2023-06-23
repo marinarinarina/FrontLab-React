@@ -1,7 +1,9 @@
+import { NavigateFunction } from 'react-router-dom';
+
 interface loginType {
 	email: string;
 	password: string;
-	navigate: any;
+	navigate: NavigateFunction;
 }
 
 export default loginType;
