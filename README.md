@@ -8,9 +8,6 @@ board: 게시판 만들기
 
 canvasAPI: 그림판 만들기
 
-## 개요
+js: 자바스크립트 관련
 
-HTML Canvas와 typescript로 만든 그림판 어플리케이션입니다.
-
-실행은 [여기](https://1692589.playcode.io)에서 해보실 수 있습니다.
 
