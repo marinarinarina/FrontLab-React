@@ -1,7 +1,24 @@
 // fetchAPI로 서버 데이터를 가져오는 기본 템플릿. url 상수 선언, 유틸함수, crud 메서드를 담은 api 객체로 이루어짐.
 
+/* ----- 데이터 정의
+서버로부터 응답받은 데이터는 아래와 같음:
+,
+  "items": [
+    {"id": 1, "name": "First Item" },
+    {"id": 2, "name": "Second Item" },
+    {"id": 3, "name": "Third Item" }
+  ] 
+*/
+class Item {
+  constructor(id, name) {
+    this.id = id;
+    this.name = name;
+  }
+}
+
+// ---- API 관련 로직
 const baseUrl = 'http://localhost:3000';
-const url = `${baseUrl}/photos?_page=1&_limit=10`;
+const url = `${baseUrl}/items`;
 
 const notFoundErrorUrl = 'https://httpstat.us/404';
 const forbiddenErrorUrl = 'https://httpstat.us/403';
@@ -44,7 +61,7 @@ function parseJSON(response) {
 export const api = { 
   getAll(page = 1, limit = 100) {
     return (
-      fetch(`${url}?_page=${page}&_limit=${limit}`) // url의 엔드포인트
+      fetch(`${url}?_page=${page}&_limit=${limit}`) 
         .then(checkStatus)
         .then(parseJSON)
         .catch((error) => {
@@ -53,18 +70,10 @@ export const api = {
         })
     );
   },
-  /*
-  var data = {
-    albumId: 1,
-    title: 'Another Photo',
-    url: 'https://via.placeholder.com/600/b0f7cc',
-    thumbnailUrl: 'https://via.placeholder.com/150/b0f7cc',
-  }; 
-  */
-  create(data) {
-    fetch(url, {
+  add(item) {
+    fetch(`${url}`, {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(item),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -79,13 +88,8 @@ export const api = {
         }
       )
   },
-  /*
-  var data = {
-    title: 'Another Updated Photo',
-  }; 
-  */
-  update(data) {
-    fetch(notFoundErrorUrl, {
+  update(item) {
+    fetch(`${url}/${item.id}`, {
       method: 'PUT',
       body: JSON.stringify(data),
       headers: {
@@ -102,12 +106,8 @@ export const api = {
         }
       )
   },
-  /* 
-  삭제할 아이템을 엔드포인트로 넘겨줌. ex. 5001번 아이템을 삭제하시오 
-  url 예시: 'http://localhost:3000/photos/5001';
-  */
   delete(id) {
-    fetch(`${baseUrl}/photos?id=${id}`, {
+    fetch(`${url}/${id}`, {
       method: 'DELETE',
     })
       .then(checkStatus)
@@ -121,3 +121,8 @@ export const api = {
       )
   }
 };
+
+// ----- 랜덤한 id를 생성하는 유틸리티 함수
+export function ID() {
+  return '_' + Math.random().toString(36).substring(2, 9);
+}
