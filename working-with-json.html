@@ -13,12 +13,27 @@
       const header = document.querySelector('header');
       const section = document.querySelector('section');
 
-      fetch(requestUrl)
-        .then((res) => res.json())
+      async function loadData(url=requestUrl) {
+        let response = await fetch(url);
+        if(response.status === 200) {
+          return response.json();
+        } else {
+          throw new Error(response.status);
+        }
+      }
+      
+      loadData()
         .then((json) => {
           populateHeader(json);
           showHeroes(json);
         });
+      // Promise 사용
+      // fetch(requestUrl)
+      //   .then((res) => res.json())
+      //   .then((json) => {
+      //     populateHeader(json);
+      //     showHeroes(json);
+      //   });
       
       function populateHeader(jsonObj) {
         const h1 = document.createElement('h1');
