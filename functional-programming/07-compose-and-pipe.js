@@ -33,7 +33,11 @@ function solution(lottos, win_nums) {
         const ranking = { 6: 1, 5: 2, 4: 3, 3: 4, 2: 5, 1: 6, 0: 6 };
         return [ranking[correntCnt + unknownCnt], ranking[correntCnt]]
     }
- 
+
+    // compose를 사용하면 함수는 아래-> 위 순서로 실행
+    // return compose(findLottoCnt, matchRanking,)(lottos, win_nums);
+    
+    // pipe를 사용하면 함수는 위에서부터 실행(가독성이 더 좋음)
     return pipe(
         findLottoCnt,
         matchRanking,
