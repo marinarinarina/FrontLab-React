@@ -1,4 +1,4 @@
-const compose = (...fns) => (obj) => fns.reduce((res, fn) => fn(res), obj);
+const compose = (...fns) => () => fns.reduce((res, fn) => fn(res), obj);
 
 const addAB = ({a, b}) => a + b;
 
