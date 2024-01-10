@@ -8,6 +8,6 @@ board: 게시판 만들기
 
 canvasAPI: 그림판 만들기
 
-js: 자바스크립트 관련
+js: js, ts 관련
 
 
