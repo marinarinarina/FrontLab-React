@@ -8,7 +8,7 @@ function debounce<T extends (...args: Parameters<T>) => ReturnType<T>>(fn: T, de
 
 let sayName = debounce((name: string) => console.log(`My name is ${name}`), 2000);
 
-sayName('Steve');
-sayName('Steve');
+sayName('Steve'); 
+sayName('Steve'); // 타이머가 초기화되고 다시 카운팅을 함
 sayName('Steve');
 sayName('Steve'); // 2초 뒤 "My name is Steve" 한 번만 출력
