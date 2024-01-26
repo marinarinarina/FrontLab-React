@@ -6,8 +6,8 @@
 
 board: 게시판 만들기
 
-canvasAPI: 그림판 만들기
+canvasAPI: canvas api 관련
 
-js: js, ts 관련
+js: 그 외 나머지
 
 
