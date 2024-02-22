@@ -1,19 +1,21 @@
-// prototype으로 스택, 큐, 우선순위큐 구현하기
+// prototype으로 스택, 큐 구현하기
 
-function setDataAllDs(dataStructures) {
-  return (n) => dataStructures.map(ds => setData(ds, n));
-}
+const Stack = require('./DS/Stack.js');
+const Queue = require('./DS/Queue.js');
 
-function setData(ds, n) {
-  for(let i = 1; i <= n; i++) {
-    ds.insert(i);
-  }
-};
+const st1 = new Stack([1, 2, 3]);
+const st2 = new Stack([1, 2, 3]);
+const q = new Queue([1, 2, 3, 4, 5]);
 
-const stack = new Stack();
-const queue = new Queue();
-const pq = new PriorityQueue();
+st1.push(4);
+st1.print();
 
-setDateAllDs(stack, queue, pq)(10);
+st2.pop();
+st2.print();
 
-console.log(stack.every(testFn)); // true;
+q.enqueue(10);
+q.dequeue();
+q.print();
+
+console.log(st2.peek());
+console.log(q.peek());
