@@ -6,16 +6,24 @@
     <title>Responsive Design</title>
   </head>
   <body>
-    <main>
-      <section>
+    <main class="main">
+      <section class="main__section">
+        <header class="content-header">
+          <h1 class="content-header__h1">메인 콘텐츠</h1>
+        </header>
       </section>
+      <aside class="main__aside">
+        <ul class="list">
+          <li class="list__item">썸네일 1</li>
+          <li class="list__item">썸네일 2</li>
+          <li class="list__item">썸네일 3</li>
+        </ul>
+      </aside>
     </main>
-    <nav>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+    <nav class="navigation">
+      <a class="navigation__link navigation__link--focused" href="#">Home</a>
+      <a class="navigation__link" href="#">About</a>
+      <a class="navigation__link" href="#">Contact</a>
     </nav>
   </body>
 </html>
